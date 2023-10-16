@@ -9,10 +9,16 @@ import tailwindcss from 'tailwindcss'
 export default defineConfig({
   plugins: [vue()],
   resolve: {
-    alias: {
+    alias: {   
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   
+  },
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      title: 'BackEnd',
+    },
   },
   css:{
     preprocessorOptions:{
