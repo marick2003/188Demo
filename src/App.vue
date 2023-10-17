@@ -14,6 +14,9 @@
   export default{
     setup(){
   
+    },
+    components:{
+      MenuHeader,
     }
   }
 </script>

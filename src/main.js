@@ -7,7 +7,8 @@ import router from './router'
 import './style.css'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css';
+import "@/untils/vee-validate.js";
 const  i18n= createI18n({
     globalInjection: true, // 全域注入，讓你在 <template> 可以使用 $t
     legacy: true,         // 讓你可以在 composition API 中使用
