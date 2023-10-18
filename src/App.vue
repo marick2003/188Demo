@@ -2,7 +2,14 @@
 
 <template>
   <div>
-    <MenuHeader></MenuHeader>
+    <MenuHeader>
+      <template v-slot:selectLocal>
+          <select v-model="locale">
+            <option>zh-CN</option>
+            <option>en-US</option>
+          </select>
+      </template>
+    </MenuHeader>
     <RouterView></RouterView>
 
   </div>

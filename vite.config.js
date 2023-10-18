@@ -20,17 +20,5 @@ export default defineConfig({
       title: 'BackEnd',
     },
   },
-  css:{
-    preprocessorOptions:{
-      scss: {
-        additionalData: `@import "@/assets/global.scss";`
-      }
-    },
-    postcss: {
-      plugins: [
-          postcssNesting,
-          tailwindcss
-      ],
-    },
-  }
+
 })

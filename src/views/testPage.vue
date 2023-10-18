@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <div class="">
         testPage
+        <h1 class="text-3xl font-bold underline text-red-500">
+          Hello world!
+        </h1>
         <!-- <div class="demo-image__lazy ">
             <el-image v-for="url in urls" :key="url" :src="url" lazy />
         </div> -->
