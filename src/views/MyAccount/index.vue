@@ -6,16 +6,16 @@
           <el-menu class="el-menu-vertical-demo" >
             <div class=" text-2xl font-bold">我的账户</div>
              <el-menu-item>
-              控制面板 
+                控制面板 
              </el-menu-item>
              <el-menu-item>
-              个人档案  
+                个人档案  
              </el-menu-item>
              <el-menu-item>
-              账户记录   
+                账户记录   
              </el-menu-item>
              <el-menu-item>
-              设置   
+                设置   
              </el-menu-item>
              <div class="">
 
@@ -28,9 +28,21 @@
       </el-container>
   </div>
 </template>
-<style>
+<style scoped>
   .common-layout{
-    /* min-height: 70vh; */
+    position: relative;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
+  .el-aside{
+    height: 80vh;
+    background-color: azure;
+  }
+  .el-menu{
+    border-right: 0;
   }
 </style>
 

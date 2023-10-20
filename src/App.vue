@@ -8,19 +8,20 @@
           </select>
       </template>
     </MenuHeader>
-    <div class="w-3/4 mx-auto">
+    <div class=" mx-auto" :class="currentRouteName== 'HomePage' ? 'w-3/4' : ''">
       <RouterView></RouterView>
     </div>
     <HomeFooter></HomeFooter>
   </div>
 </template>
 <script setup>
-import { ref, reactive} from 'vue'
-import { RouterLink, RouterView } from  'vue-router';
+import { ref, reactive,computed} from 'vue'
+import { RouterLink, RouterView  ,useRouter } from  'vue-router';
 import MenuHeader from '@/components/MenuHeader.vue';
 import HomeFooter from '@/components/HomeFooter.vue'
 const locale = ref('zh-CN');
-
+const router = useRouter();
+const currentRouteName = computed(() => router.currentRoute.value.name)
 </script>
 <style scoped>
 .logo {
