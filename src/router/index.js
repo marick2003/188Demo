@@ -10,7 +10,7 @@ import MyAccountSettings from '@/views/MyAccount/settings.vue'
 let routes_pc=[
     {
         path: '/',
-        name: 'TestPage',
+        name: '',
         type:'page',
         component: TestPage,
     },

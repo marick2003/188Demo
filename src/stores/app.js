@@ -10,18 +10,18 @@ export const app = defineStore({
             const User= user();
             User.setUser();
         },
-        test(){
+        test() {
          return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve('asd'); // Resolving the promise with 'asd' after a delay
             }, 1000);
           });
         },
-        async test2(){
+        async test2() {
             await this.init();
             return 'ok';
         },
-        test3(){
+        test3() {
           return new  Promise(()=>{
 
 

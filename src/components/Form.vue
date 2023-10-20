@@ -36,6 +36,10 @@ const password = defineComponentBinds('password', {
   }),
 });
 
+const submit = () => {
+  console.log('hello sub');
+}
+
 
 const schema2 = {
   email: 'required|email',
