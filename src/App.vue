@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <MenuHeader>
@@ -10,22 +8,19 @@
           </select>
       </template>
     </MenuHeader>
-    <RouterView></RouterView>
-
+    <div class="w-3/4 mx-auto">
+      <RouterView></RouterView>
+    </div>
+    <HomeFooter></HomeFooter>
   </div>
 </template>
-<script>
-  import { RouterLink, RouterView } from  'vue-router';
-  import MenuHeader from '@/components/MenuHeader.vue';
+<script setup>
+import { ref, reactive} from 'vue'
+import { RouterLink, RouterView } from  'vue-router';
+import MenuHeader from '@/components/MenuHeader.vue';
+import HomeFooter from '@/components/HomeFooter.vue'
+const locale = ref('zh-CN');
 
-  export default{
-    setup(){
-  
-    },
-    components:{
-      MenuHeader,
-    }
-  }
 </script>
 <style scoped>
 .logo {

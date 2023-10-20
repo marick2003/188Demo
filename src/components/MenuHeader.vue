@@ -1,54 +1,38 @@
 <template>
-    <el-menu
-      :default-active="activePath"
-      class="el-menu-demo justify-between"
-      mode="horizontal"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
-      @select="handleSelect"
-      router
-    >
-      <div class="flex">
-        <el-menu-item :index="item.path" v-for="(item,index) in menuItems">{{item.name}}</el-menu-item>
-
-      </div>
-
-      <!-- <el-sub-menu index="2">
-        <template #title>Workspace</template>
-        <el-menu-item index="2-1">item one</el-menu-item>
-        <el-menu-item index="2-2">item two</el-menu-item>
-        <el-menu-item index="2-3">item three</el-menu-item>
-        <el-sub-menu index="2-4">
-          <template #title>item four</template>
-          <el-menu-item index="2-4-1">item one</el-menu-item>
-          <el-menu-item index="2-4-2">item two</el-menu-item>
-          <el-menu-item index="2-4-3">item three</el-menu-item>
-        </el-sub-menu>
-      </el-sub-menu> -->
-      <div class="flex items-center">
-        <slot name="selectLocal">
-        </slot>
-        <el-button class="mx-5">
-          Login
-        </el-button>
-      </div>
-
-    </el-menu>
-  </template>
+  <div>
+    <div class="w-full fixed top-0 left-0 z-[3]">
+      <el-menu 
+        :default-active="activePath"
+        class="el-menu-demo justify-between"
+        mode="horizontal"
+        background-color="#000"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+        router
+      >
+        <div class="flex">
+          <el-menu-item v-for="(item, index) in menuItems" :index="item.path">
+            {{ $t(item.name) ? $t(item.name) : item.name}}
+          </el-menu-item>
+        </div>
+        <div class="flex items-center">
+          <slot name="selectLocal">
+          </slot>
+          <el-button class="mx-5">
+            Login
+          </el-button>
+        </div>
+      </el-menu>
+    </div>
+  </div>
+  <div class="space-occupancy print:hidden header-spacer h-[3.5rem] md:h-[4.5rem] dark"></div>
+</template>
   
-  <script  setup>
-  import { ref ,onMounted} from 'vue'
-  import { useMenu } from '@/untils/useMenu';
-  
-  const handleSelect = (key, keyPath) => {
-    console.log(key, keyPath)
-  }
-  const { menuItems, activePath } = useMenu();
-  onMounted(()=>{
-    console.log(activePath);
-  })
-  </script>
-<style scoped>
+<script  setup>
+import { ref, onMounted } from 'vue'
+import { useMenu } from '@/untils/useMenu';
 
-</style>
+const { menuItems, activePath } = useMenu();
+
+</script>
+<style scoped></style>
