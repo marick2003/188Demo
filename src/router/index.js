@@ -27,23 +27,34 @@ let routes_pc=[
       component: MyAccount,
       children:[
         {
-          path: '',
-          name: 'DashBoard',
+          path: '/myaccount',
+          name: '控制面板',
           component:MyAccountDashBoard,
         },
         {
-          path: '/Profile',
-          name: 'Profile',
+          path: '/myaccount/Profile',
+          name: '个人档案',
           component:MyAccountProfile,
         },
         {
-          path: '/Statement',
-          name: 'Statement',
+          path: '/myaccount/Statement',
+          name: '账户记录',
           component:MyAccountStatement,
+          children:[
+            {
+              path:'./transaction-history/summary',
+              name: '摘要',
+            },
+            {
+              path:'./betting-history',
+              name: '投注记录',
+            },
+           
+          ]
         },
         {
-          path: '/Settings',
-          name: 'Settings',
+          path: '/myaccount/Settings',
+          name: '设置',
           component:MyAccountSettings,
         },
       ]
