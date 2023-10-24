@@ -3,10 +3,23 @@
         <el-header height="70px" class="text-xl font-bold flex items-center">
             {{ route.name }}
         </el-header>
-        <el-container :direction="horizontal" class="p-10  justify-center  mt-7">
-            <el-tabs v-model="activeName" class="" @tab-click="handleClick">
-                <el-tab-pane label="User" name="first">User</el-tab-pane>
-            </el-tabs>
+        <el-container :direction="horizontal" class="p-10  flex-col justify-start  mt-7">
+            <el-header> 
+                <el-menu
+            :default-active="route.fullPath"
+            class="el-tab-demo "
+            mode="horizontal"
+            router
+            >
+                <el-menu-item v-for="(item, index) in subItems" :index="item.path">
+                {{ $t(item.name) ? $t(item.name) : item.name}}
+            </el-menu-item>
+            </el-menu>
+        </el-header>
+           
+            <el-main class="h-full p-0 relative">
+                <RouterView></RouterView>
+            </el-main>
         </el-container>
     </el-container>
 </template>
@@ -15,10 +28,9 @@ import { useRouter, useRoute } from 'vue-router';
 import { useMenu } from '@/untils/useMenu';
 const { menuItems, activePath } = useMenu();
 const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-const subItem = filteredItem.children.find(item => item.name === '账户记录');
-
-console.log(subItem);
+const subItems = filteredItem.children.find(item => item.name === '账户记录').children;
 const route= useRoute();
+console.log(route);
 </script>
 <style scoped>
     .el-header{

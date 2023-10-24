@@ -6,6 +6,7 @@ import MyAccountDashBoard from '@/views/MyAccount/dashBoard.vue'
 import MyAccountProfile from '@/views/MyAccount/profile.vue'
 import MyAccountStatement from '@/views/MyAccount/statement.vue'
 import MyAccountSettings from '@/views/MyAccount/settings.vue'
+import StatementSummary from '@/views/MyAccount/history/summary.vue'
 
 let routes_pc=[
     {
@@ -24,36 +25,39 @@ let routes_pc=[
       path: '/myaccount',
       name: 'MyAccount',
       type:'page',
+      redirect:'/myaccount/dashboard',
       component: MyAccount,
       children:[
         {
-          path: '/myaccount',
+          path: 'dashboard',
           name: '控制面板',
           component:MyAccountDashBoard,
         },
         {
-          path: '/myaccount/Profile',
+          path: 'Profile',
           name: '个人档案',
           component:MyAccountProfile,
         },
         {
-          path: '/myaccount/Statement',
+          path: 'Statement',
           name: '账户记录',
+          redirect:'./summary',
           component:MyAccountStatement,
           children:[
             {
-              path:'./transaction-history/summary',
+              path:'summary',
               name: '摘要',
+              component:StatementSummary
             },
             {
-              path:'./betting-history',
+              path:'betting-history',
               name: '投注记录',
             },
            
           ]
         },
         {
-          path: '/myaccount/Settings',
+          path: 'Settings',
           name: '设置',
           component:MyAccountSettings,
         },
