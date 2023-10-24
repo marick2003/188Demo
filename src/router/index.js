@@ -9,14 +9,14 @@ import MyAccountSettings from '@/views/MyAccount/settings.vue'
 import StatementSummary from '@/views/MyAccount/history/summary.vue'
 
 let routes_pc=[
+    // {
+    //     path: '/',
+    //     name: '',
+    //     type:'page',
+    //     component: TestPage,
+    // },
     {
-        path: '/',
-        name: '',
-        type:'page',
-        component: TestPage,
-    },
-    {
-      path: '/home',
+      path: '/',
       name: 'HomePage',
       type:'page',
       component: HomePage,

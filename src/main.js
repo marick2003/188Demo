@@ -11,6 +11,7 @@ import "@/assets/global.scss";
 import 'element-plus/dist/index.css';
 import "@/untils/vee-validate.js";
 import { useCookies } from '@vueuse/integrations/useCookies'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const  i18n= createI18n({
     globalInjection: true, // 全域注入，讓你在 <template> 可以使用 $t
@@ -22,9 +23,12 @@ const  i18n= createI18n({
       "en-US": en,
     }
   });
+  
 
 const app = createApp(App)
-
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
 app.use(ElementPlus)
 app.use(i18n)
 app.use(router)

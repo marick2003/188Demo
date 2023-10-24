@@ -1,24 +1,27 @@
 <template>
   <div>
     <MenuHeader>
-      <template v-slot:selectLocal>
+      <template v-slot:logo>
+        <img src="src/assets/images/header/logo.png" alt="">
+      </template>
+      <!-- <template v-slot:selectLocal>
           <select v-model="locale">
             <option>zh-CN</option>
             <option>en-US</option>
           </select>
-      </template>
+      </template> -->
     </MenuHeader>
     <div class=" mx-auto" :class="currentRouteName== 'HomePage' ? 'w-3/4' : ''">
       <RouterView></RouterView>
     </div>
-    <HomeFooter></HomeFooter>
+    <Footer></Footer>
   </div>
 </template>
 <script setup>
 import { ref, reactive,computed} from 'vue'
 import { RouterLink, RouterView  ,useRouter } from  'vue-router';
 import MenuHeader from '@/components/MenuHeader.vue';
-import HomeFooter from '@/components/HomeFooter.vue'
+import Footer from '@/components/Footer.vue'
 const locale = ref('zh-CN');
 const router = useRouter();
 const currentRouteName = computed(() => router.currentRoute.value.name)
