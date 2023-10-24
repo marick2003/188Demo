@@ -16,7 +16,7 @@
         
         </el-menu>
       </el-aside>
-      <el-main class="h-full p-0 relative">
+      <el-main class="h-full p-0 relative bg-gray">
         <RouterView></RouterView>
       </el-main>
     </el-container>
@@ -69,4 +69,7 @@ childrenMenu.value.forEach(element => {
   padding: 20px;
   border-bottom: 1px solid #ccc;
 }
+.bg-gray{
+        background-color: #f6f6f6;
+    }
 </style>

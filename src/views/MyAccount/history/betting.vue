@@ -9,19 +9,16 @@
     </div>
 </template>
 <script setup>
-const imgUrl = new URL('@/assets/images/demo/statement.png', import.meta.url).href
+const imgUrl = new URL('@/assets/images/demo/betting.png', import.meta.url).href
 </script>
 <style scoped lang="scss">
     .el-header{
         border-bottom: 1px solid #ccc;
     }
     .demo{
-        width: 1079px;
-        height: 757px;
+        width: 1616px;
+        height: 161px;
         overflow: hidden;
-        .img{
-            top: -55px;
-            position: absolute;
-        }
+      
     }
 </style>
