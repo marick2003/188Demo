@@ -3,14 +3,14 @@ import TestPage from '@/views/TestPage.vue'
 import HomePage from '@/views/HomePage.vue'
 
 let routes_pc=[
+    // {
+    //     path: '/',
+    //     name: '',
+    //     type:'page',
+    //     component: TestPage,
+    // },
     {
-        path: '/',
-        name: '',
-        type:'page',
-        component: TestPage,
-    },
-    {
-      path: '/home',
+      path: '/',
       name: 'HomePage',
       type:'page',
       component: HomePage,

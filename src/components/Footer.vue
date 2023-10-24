@@ -1,6 +1,6 @@
 <template>
-    <div v-for="item in footerInfo">
-        {{ item.name }}
+    <div class="flex justify-center items-center bg-black mt-10">
+        <img src="src/assets/images/footer/footer.png" alt="" class="w-auto h-auto">
     </div>
 </template>
   

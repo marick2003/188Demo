@@ -1,24 +1,27 @@
 <template>
   <div>
     <MenuHeader>
-      <template v-slot:selectLocal>
+      <template v-slot:logo>
+        <img src="src/assets/images/header/logo.png" alt="">
+      </template>
+      <!-- <template v-slot:selectLocal>
           <select v-model="locale">
             <option>zh-CN</option>
             <option>en-US</option>
           </select>
-      </template>
+      </template> -->
     </MenuHeader>
     <div class="w-3/4 mx-auto">
       <RouterView></RouterView>
     </div>
-    <HomeFooter></HomeFooter>
+    <Footer></Footer>
   </div>
 </template>
 <script setup>
 import { ref, reactive} from 'vue'
 import { RouterLink, RouterView } from  'vue-router';
 import MenuHeader from '@/components/MenuHeader.vue';
-import HomeFooter from '@/components/HomeFooter.vue'
+import Footer from '@/components/Footer.vue'
 const locale = ref('zh-CN');
 
 </script>
