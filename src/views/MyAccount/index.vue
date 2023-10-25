@@ -4,14 +4,14 @@
       <el-aside width="265px">
         <el-menu  
         router
-        :default-active="activePath"
+        :default-active="defaultActive"
         background-color="#fff"
         text-color="#262626"
         active-text-color="#FF9200"
         class="el-menu-vertical-demo">
           <div class="title  text-xl font-bold">我的账户</div>
           <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path">
-            {{ $t(item.name) ? $t(item.name) : item.name}}
+            {{ $t(item.name) ? $t(item.name) : item.name}} --- {{ item.path }}
           </el-menu-item>
         
         </el-menu>
@@ -23,7 +23,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref,computed  } from 'vue';
 import { useMenu } from '@/untils/useMenu';
 import { useRouter, useRoute } from 'vue-router';
 const { menuItems, activePath } = useMenu();
@@ -32,6 +32,9 @@ let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
 childrenMenu.value.forEach(element => {
   console.log(element.path)
 });
+const defaultActive=computed(()=>{
+    activePath.value= activePath.value.split('/').reverse()[0];
+})
 </script>
 <style scoped lang="scss">
 .common-layout {
@@ -63,7 +66,7 @@ childrenMenu.value.forEach(element => {
 }
 .el-main{
   --el-main-padding:0;
-  min-height: 80vh;
+  height: 100vh;
 }
 .title {
   padding: 20px;
