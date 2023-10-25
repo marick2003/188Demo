@@ -6,15 +6,11 @@ import MyAccountDashBoard from '@/views/MyAccount/dashBoard.vue'
 import MyAccountProfile from '@/views/MyAccount/profile.vue'
 import MyAccountStatement from '@/views/MyAccount/statement.vue'
 import MyAccountSettings from '@/views/MyAccount/settings.vue'
+import Live from '@/views/GameList/live.vue'
+import Lottery from '@/views/GameList/lottery.vue'
 import StatementSummary from '@/views/MyAccount/history/summary.vue'
 import StatementBetting from '@/views/MyAccount/history/betting.vue'
 let routes_pc=[
-    // {
-    //     path: '/',
-    //     name: '',
-    //     type:'page',
-    //     component: TestPage,
-    // },
     {
       path: '/',
       name: 'HomePage',
@@ -51,7 +47,18 @@ let routes_pc=[
         },
       ]
     },
-
+    {
+      path: '/live',
+      name: '真人荷官',
+      type:'page',
+      component: Live,
+    },
+    {
+      path: '/lottery',
+      name: '彩票',
+      type:'page',
+      component: Lottery,
+    },
   ]
 
 let routes_h5 =[

@@ -14,15 +14,15 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const  i18n= createI18n({
-    globalInjection: true, // 全域注入，讓你在 <template> 可以使用 $t
-    legacy: true,         // 讓你可以在 composition API 中使用
-    locale:useCookies(['locale']) ?? "zh-CN",
-    fallbackLocale: "zh-CN",
-    messages: {
-      "zh-CN": zh,
-      "en-US": en,
-    }
-  });
+  globalInjection: true, // 全域注入，讓你在 <template> 可以使用 $t
+  legacy: true,         // 讓你可以在 composition API 中使用
+  locale:useCookies(['locale']) ?? "zh-CN",
+  fallbackLocale: "zh-CN",
+  messages: {
+    "zh-CN": zh,
+    "en-US": en,
+  }
+});
   
 
 const app = createApp(App)
