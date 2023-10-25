@@ -17,7 +17,6 @@
     </el-container>
 </template>
 <script setup>
-<<<<<<< HEAD
 
 import { ref } from 'vue';
 import {useRouter, useRoute } from 'vue-router';
@@ -34,15 +33,6 @@ const handleClick = (tab, event) => {
         },
       })
 }
-const loading = ref(true)
-=======
-import { useRouter, useRoute } from 'vue-router';
-import { useMenu } from '@/untils/useMenu';
-const { menuItems, activePath } = useMenu();
-const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-const subItems = filteredItem.children.find(item => item.name === '账户记录').children;
-const route= useRoute();
->>>>>>> 32b8ab8c383e0206635883695621a8a27582a402
 </script>
 <style scoped lang="scss">
     .el-menu{

@@ -38,6 +38,9 @@ let routes_pc=[
           path: 'Statement',
           name: '账户记录',
           props: (route) => ({ tab: route.query.tab || 'summarys' }), // 设置带有查询参数的tab
+          query:()=>({
+            tab:'summarys',
+          }),
           component:MyAccountStatement,
         },
         {
