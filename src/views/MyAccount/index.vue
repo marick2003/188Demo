@@ -3,17 +3,18 @@
     <el-container class="h-full">
       <el-aside width="265px">
         <el-menu  
-          router
-          :default-active="defaultActive"
-          background-color="#fff"
-          text-color="#262626"
-          active-text-color="#FF9200"
-          class="el-menu-vertical-demo">
-          <div class="title text-xl font-bold">我的账户</div>
-          <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path">
-            <!-- {{ $t(item.name) ? $t(item.name) : item.name}} --- {{ item.path }} -->
-            {{ item.name }} --- {{ item.path }}
+        router
+        :default-active="defaultActive"
+        background-color="#fff"
+        text-color="#262626"
+        active-text-color="#FF9200"
+        class="el-menu-vertical-demo">
+          <div class="title  text-xl font-bold">我的账户</div>
+          <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path"  :route="item.path === 'Statement' ? { path: item.path, query: { tab: 'summarys' } } : { path: item.path }">
+            <!-- {{ $t(item.name) ? $t(item.name) : item.name}} -->
+            {{ item.name }}
           </el-menu-item>
+        
         </el-menu>
       </el-aside>
       <el-main class="h-full p-0 relative bg-gray">
@@ -23,13 +24,13 @@
   </div>
 </template>
 <script setup>
-  import { ref,computed  } from 'vue';
-  import { useMenu } from '@/untils/useMenu';
-  const { menuItems, activePath } = useMenu();
-  const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-  let childrenMenu = ref(filteredItem ? filteredItem.children : []);
-
-  const defaultActive = computed(() => {
+import { ref,computed  } from 'vue';
+import { useMenu } from '@/untils/useMenu';
+import { useRouter, useRoute } from 'vue-router';
+const { menuItems, activePath } = useMenu();
+const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
+let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
+const defaultActive=computed(()=>{
     activePath.value= activePath.value.split('/').reverse()[0];
   });
 </script>
@@ -63,7 +64,7 @@
 }
 .el-main{
   --el-main-padding:0;
-  height: 100vh;
+  height: auto;
 }
 .title {
   padding: 20px;

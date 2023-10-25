@@ -4,31 +4,35 @@
             {{ route.name }}
         </el-header>
         <el-container class="flex-col justify-start ">
-            <el-header class="el-tab-demo"> 
-                <el-menu
-                    :default-active="route.path"
-                    mode="horizontal"
-                    router
-                    >
-                    <el-menu-item v-for="(item, index) in subItems" :index="item.path">
-                    {{ $t(item.name) ? $t(item.name) : item.name}}
-                    </el-menu-item>
-                </el-menu>
-            </el-header>
-           
-            <el-main class="h-full p-0 relative">
-                <RouterView></RouterView>
-            </el-main>
+            <el-tabs v-model="route.query.tab" class="demo-tabs  p-7" @tab-click="handleClick">
+                <el-tab-pane label="摘要" name="summarys">
+                    <summarys></summarys>
+                </el-tab-pane>
+                <el-tab-pane label="投注紀錄" name="betting">
+                    <betting></betting>
+                </el-tab-pane>
+
+            </el-tabs>
         </el-container>
     </el-container>
 </template>
 <script setup>
-import { useRouter, useRoute } from 'vue-router';
-import { useMenu } from '@/untils/useMenu';
-const { menuItems, activePath } = useMenu();
-const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-const subItems = filteredItem.children.find(item => item.name === '账户记录').children;
-const route= useRoute();
+
+import { ref } from 'vue';
+import {useRouter, useRoute } from 'vue-router';
+import summarys from './history/summary.vue';
+import betting from './history/betting.vue';
+const route=useRoute();
+const router = useRouter();
+console.log(route.query)
+const handleClick = (tab, event) => {
+  router.push({
+        path: 'Statement',
+        query: {
+            tab:tab.props.name
+        },
+      })
+}
 </script>
 <style scoped lang="scss">
     .el-menu{
@@ -37,10 +41,6 @@ const route= useRoute();
    .el-header{
     border-bottom: 1px solid #ccc;
    }
-    .demo{
-        width: 650px;
-        height: 200px;
-    }
     .el-tab-demo{
         border: 0;
         ul{
