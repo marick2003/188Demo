@@ -23,7 +23,7 @@ const  i18n= createI18n({
     "en-US": en,
   }
 });
-  
+
 
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

@@ -22,27 +22,15 @@
                 </div>
                 </template>
                 <el-table :data="tableData" style="width: 100%">
-                    <el-table-column prop="date" label="交易類型" width="180" />
-                    <el-table-column prop="name" label="支出(RMB)" width="180" />
-                    <el-table-column prop="address" label="收入(RMB)" />
+                   
+                    
                 </el-table>
         </el-card>
     </div>
 </template>
 <script setup>
-const imgUrl = new URL('@/assets/images/demo/statement.png', import.meta.url).href;
 const tableData = [
-  {
-    date: '真人荷官',
-    name: '1000',
-    address: '500',
-  },
-  {
-    date: '彩票',
-    name: '2000',
-    address: '1000',
-  },
-
+  
 ]
 </script>
 <style scoped lang="scss">

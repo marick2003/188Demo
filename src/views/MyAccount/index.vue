@@ -29,7 +29,7 @@ import { useMenu } from '@/untils/useMenu';
 import { useRouter, useRoute } from 'vue-router';
 const { menuItems, activePath } = useMenu();
 const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
+let  childrenMenu = ref(filteredItem ? filteredItem.children.filter(item => item.type === 'page') : []);
 const defaultActive=computed(()=>{
     activePath.value= activePath.value.split('/').reverse()[0];
   });

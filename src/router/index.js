@@ -28,27 +28,31 @@ let routes_pc=[
         {
           path: 'dashboard',
           name: '控制面板',
+          type:'page',
           component:MyAccountDashBoard,
         },
         {
           path: 'Profile',
           name: '个人档案',
+          type:'page',
           component:MyAccountProfile,
         },
         {
           path: 'Statement',
           name: '账户记录',
-          props: (route) => ({ tab: route.query.tab || 'summarys' }), 
+          type:'page',
           component:MyAccountStatement,
         },
         {
           path: 'BettingDetail',
-          name: '账户记录2',
+          name: '记录',
+          type:'data',
           component:BettingDetail,
         },
         {
           path: 'Settings',
           name: '设置',
+          type:'page',
           component:MyAccountSettings,
         },
       ]
