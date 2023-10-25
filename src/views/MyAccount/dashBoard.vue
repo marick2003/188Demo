@@ -1,10 +1,10 @@
 <template>
     <el-container :direction="vertical" class="h-full absolute w-full">
-        <el-header height="70px" class="text-xl font-bold flex items-center">
+        <el-header height="70px" class="text-xl font-bold flex items-center  bg-white">
             {{ route.name }}
         </el-header>
         <el-container :direction="horizontal" class="p-10 text-left mt-7">
-            <el-image :src="src" class="demo">
+            <el-image :src="imgUrl" class="demo">
                 <template #placeholder>
                         <div class="image-slot">Loading<span class="dot">...</span></div>
                 </template>
@@ -16,7 +16,7 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
 const route= useRoute();
-const src='src/assets/images/demo/dashboard.png';
+const imgUrl = new URL('@/assets/images/demo/dashboard.png', import.meta.url).href
 </script>
 <style scoped>
     .el-header{

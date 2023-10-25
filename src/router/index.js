@@ -8,7 +8,8 @@ import MyAccountStatement from '@/views/MyAccount/statement.vue'
 import MyAccountSettings from '@/views/MyAccount/settings.vue'
 import Live from '@/views/GameList/live.vue'
 import Lottery from '@/views/GameList/lottery.vue'
-
+import StatementSummary from '@/views/MyAccount/history/summary.vue'
+import StatementBetting from '@/views/MyAccount/history/betting.vue'
 let routes_pc=[
     {
       path: '/',
@@ -20,10 +21,11 @@ let routes_pc=[
       path: '/myaccount',
       name: 'MyAccount',
       type:'page',
+      redirect:'/myaccount/dashboard',
       component: MyAccount,
       children:[
         {
-          path: '/myaccount',
+          path: '/myaccount/dashboard',
           name: '控制面板',
           component:MyAccountDashBoard,
         },
@@ -35,17 +37,19 @@ let routes_pc=[
         {
           path: '/myaccount/Statement',
           name: '账户记录',
+          redirect:'/myaccount/Statement/summary',
           component:MyAccountStatement,
           children:[
-            {
-              path:'./transaction-history/summary',
-              name: '摘要',
-            },
-            {
-              path:'./betting-history',
-              name: '投注记录',
-            },
-           
+              {
+                path:'/myaccount/Statement/summary',
+                name: '摘要',
+                component:StatementSummary
+              },
+              {
+                path:'/myaccount/Statement/betting-history',
+                name: '投注记录',
+                component:StatementBetting
+              },
           ]
         },
         {

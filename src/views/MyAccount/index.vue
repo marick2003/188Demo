@@ -16,7 +16,7 @@
           </el-menu-item>
         </el-menu>
       </el-aside>
-      <el-main class="h-full p-0 relative">
+      <el-main class="h-full p-0 relative bg-gray">
         <RouterView></RouterView>
       </el-main>
     </el-container>
@@ -25,9 +25,13 @@
 <script setup>
 import { ref } from 'vue';
 import { useMenu } from '@/untils/useMenu';
+import { useRouter, useRoute } from 'vue-router';
 const { menuItems, activePath } = useMenu();
 const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-const childrenMenu = ref(filteredItem ? filteredItem.children : []);
+let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
+childrenMenu.value.forEach(element => {
+  console.log(element.path)
+});
 </script>
 <style scoped lang="scss">
 .common-layout {
@@ -65,4 +69,7 @@ const childrenMenu = ref(filteredItem ? filteredItem.children : []);
   padding: 20px;
   border-bottom: 1px solid #ccc;
 }
+.bg-gray{
+        background-color: #f6f6f6;
+    }
 </style>
