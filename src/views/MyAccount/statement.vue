@@ -16,9 +16,7 @@ import { useMenu } from '@/untils/useMenu';
 const { menuItems, activePath } = useMenu();
 const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
 const subItem = filteredItem.children.find(item => item.name === '账户记录');
-
-console.log(subItem);
-const route= useRoute();
+const route = useRoute();
 </script>
 <style scoped>
     .el-header{

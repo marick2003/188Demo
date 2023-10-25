@@ -3,17 +3,17 @@
     <el-container class="h-full">
       <el-aside width="265px">
         <el-menu  
-        router
-        :default-active="activePath"
-        background-color="#fff"
-        text-color="#262626"
-        active-text-color="#FF9200"
-        class="el-menu-vertical-demo">
+          router
+          :default-active="activePath"
+          background-color="#fff"
+          text-color="#262626"
+          active-text-color="#FF9200"
+          class="el-menu-vertical-demo">
           <div class="title  text-xl font-bold">我的账户</div>
           <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path">
-            {{ $t(item.name) ? $t(item.name) : item.name}}
+            {{ item.name }}
+            <!-- {{ $t(item.name) ? $t(item.name) : item.name}} -->
           </el-menu-item>
-        
         </el-menu>
       </el-aside>
       <el-main class="h-full p-0 relative">

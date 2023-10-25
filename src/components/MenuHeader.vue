@@ -13,7 +13,8 @@
         <slot name="logo"></slot>
         <div class="flex">
           <el-menu-item v-for="(item, index) in menuItems" :index="item.path">
-            {{ $t(item.name) ? $t(item.name) : item.name }}
+            {{ item.name }}
+            <!-- {{ $t(item.name) ? $t(item.name) : item.name }} -->
           </el-menu-item>
         </div>
         <div class="flex items-center">

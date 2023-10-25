@@ -11,20 +11,24 @@
           </select>
       </template> -->
     </MenuHeader>
-    <div class=" mx-auto" :class="currentRouteName== 'HomePage' ? 'w-3/4' : ''">
+    <div class=" mx-auto" :class="fullpath ? '' : 'w-3/4'">
       <RouterView></RouterView>
     </div>
     <Footer></Footer>
   </div>
 </template>
 <script setup>
-import { ref, reactive,computed} from 'vue'
-import { RouterLink, RouterView  ,useRouter } from  'vue-router';
-import MenuHeader from '@/components/MenuHeader.vue';
-import Footer from '@/components/Footer.vue'
-const locale = ref('zh-CN');
-const router = useRouter();
-const currentRouteName = computed(() => router.currentRoute.value.name)
+  import { ref, reactive, computed} from 'vue'
+  import { RouterLink, RouterView, useRouter, onBeforeRouteLeave } from  'vue-router';
+  import MenuHeader from '@/components/MenuHeader.vue';
+  import Footer from '@/components/Footer.vue'
+
+  const router = useRouter();
+  const fullpath = computed(() => {
+    const info = router.currentRoute.value.path
+    const status = info.includes('myaccount')
+    return status
+  });
 </script>
 <style scoped>
 .logo {
