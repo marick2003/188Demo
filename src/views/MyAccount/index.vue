@@ -10,8 +10,8 @@
         active-text-color="#FF9200"
         class="el-menu-vertical-demo">
           <div class="title  text-xl font-bold">我的账户</div>
-          <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path">
-            {{ $t(item.name) ? $t(item.name) : item.name}} --- {{ item.path }}
+          <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path" :route="{path:item.path,query:{tab: 'summarys'}}">
+            {{ $t(item.name) ? $t(item.name) : item.name}}
           </el-menu-item>
         
         </el-menu>
@@ -29,9 +29,6 @@ import { useRouter, useRoute } from 'vue-router';
 const { menuItems, activePath } = useMenu();
 const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
 let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
-childrenMenu.value.forEach(element => {
-  console.log(element.path)
-});
 const defaultActive=computed(()=>{
     activePath.value= activePath.value.split('/').reverse()[0];
 })
@@ -66,7 +63,7 @@ const defaultActive=computed(()=>{
 }
 .el-main{
   --el-main-padding:0;
-  height: 100vh;
+  height: auto;
 }
 .title {
   padding: 20px;

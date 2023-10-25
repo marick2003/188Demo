@@ -41,20 +41,8 @@ let routes_pc=[
         {
           path: 'Statement',
           name: '账户记录',
-          redirect:'/myaccount/Statement/summary',
+          props: (route) => ({ tab: route.query.tab || 'summarys' }), // 设置带有查询参数的tab
           component:MyAccountStatement,
-          children:[
-              {
-                path:'/myaccount/Statement/summary',
-                name: '摘要',
-                component:StatementSummary
-              },
-              {
-                path:'betting-history',
-                name: '投注记录',
-                component:StatementBetting
-              },
-          ]
         },
         {
           path: 'Settings',

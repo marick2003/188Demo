@@ -1,11 +1,16 @@
 <template>
     <div class="demo">
-        <el-image :src="imgUrl" class="img">
-                <template #placeholder>
-                        <div class="image-slot">Loading<span class="dot">...</span></div>
-                </template>
-         </el-image>
-
+        <el-row :gutter="12">
+            <el-col :span="8">
+            <el-card shadow="hover">
+                <el-icon></el-icon>
+                 真人荷官
+             </el-card>
+            </el-col>
+            <el-col :span="8">
+            <el-card shadow="hover"> <el-icon></el-icon> 彩票 </el-card>
+            </el-col>
+        </el-row>
     </div>
 </template>
 <script setup>
@@ -16,9 +21,7 @@ const imgUrl = new URL('@/assets/images/demo/betting.png', import.meta.url).href
         border-bottom: 1px solid #ccc;
     }
     .demo{
-        width: 1616px;
-        height: 161px;
-        overflow: hidden;
-      
+        width: 100%;
+        min-width: 1024px;
     }
 </style>
