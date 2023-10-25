@@ -25,17 +25,17 @@ let routes_pc=[
       component: MyAccount,
       children:[
         {
-          path: '/myaccount/dashboard',
+          path: 'dashboard',
           name: '控制面板',
           component:MyAccountDashBoard,
         },
         {
-          path: '/myaccount/Profile',
+          path: 'Profile',
           name: '个人档案',
           component:MyAccountProfile,
         },
         {
-          path: '/myaccount/Statement',
+          path: 'Statement',
           name: '账户记录',
           redirect:'/myaccount/Statement/summary',
           component:MyAccountStatement,
@@ -46,14 +46,14 @@ let routes_pc=[
                 component:StatementSummary
               },
               {
-                path:'/myaccount/Statement/betting-history',
+                path:'betting-history',
                 name: '投注记录',
                 component:StatementBetting
               },
           ]
         },
         {
-          path: '/myaccount/Settings',
+          path: 'Settings',
           name: '设置',
           component:MyAccountSettings,
         },

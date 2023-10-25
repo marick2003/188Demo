@@ -1,9 +1,9 @@
 <template>
-    <el-container :direction="vertical" >
+    <el-container  >
         <el-header height="70px" class="text-xl font-bold flex items-center bg-white">
             {{ route.name }}
         </el-header>
-        <el-container :direction="horizontal" class="justify-center text-left mt-7">
+        <el-container class="justify-center text-left mt-7">
             <el-card class="box-card w-3/5">
                 <template #header>
                     <div class="card-header">
