@@ -10,6 +10,7 @@ import Live from '@/views/GameList/live.vue'
 import Lottery from '@/views/GameList/lottery.vue'
 import StatementSummary from '@/views/MyAccount/history/summary.vue'
 import StatementBetting from '@/views/MyAccount/history/betting.vue'
+import BettingDetail from '@/views/MyAccount/bettingdetail.vue'
 let routes_pc=[
     {
       path: '/',
@@ -37,8 +38,13 @@ let routes_pc=[
         {
           path: 'Statement',
           name: '账户记录',
-          props: (route) => ({ tab: route.query.tab || 'summarys' }), // 设置带有查询参数的tab
+          props: (route) => ({ tab: route.query.tab || 'summarys' }), 
           component:MyAccountStatement,
+        },
+        {
+          path: 'BettingDetail',
+          name: '账户记录2',
+          component:BettingDetail,
         },
         {
           path: 'Settings',
