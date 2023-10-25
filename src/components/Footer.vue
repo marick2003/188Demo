@@ -5,11 +5,11 @@
 </template>
   
 <script  setup>
-import { ref, reactive } from 'vue'
+// import { ref, reactive } from 'vue'
 
-const footerInfo = reactive([
-    { id: '',name: '',text: ''},
-]);
+// const footerInfo = reactive([
+//     { id: '',name: '',text: ''},
+// ]);
 
 </script>
 <style scoped>

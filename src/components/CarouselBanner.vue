@@ -1,7 +1,7 @@
 <template>
   <el-carousel :interval="50000" arrow="always" height="400px" class="col-span-12">
     <el-carousel-item v-for="item in carouselMenu" :key="item">
-      <img :src="`src/assets/images/carousel/${item.id}.webp`" alt="">
+      <img :src="`src/assets/images/${page}/${item.id}.webp`" alt="">
       <div class="p-16 pb-1 text-white w-full absolute bottom-10 flex justify-between items-center">
         <div class="info-text">
           <h1 class="font-bold text-2xl">{{ item.title }}</h1>
@@ -17,7 +17,8 @@
   
 <script setup>
   defineProps({
-    carouselMenu: Array
+    carouselMenu: Array,
+    page: String
   });
 </script>
 

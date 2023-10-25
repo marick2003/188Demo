@@ -67,39 +67,39 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
-import { useMenu } from "@/untils/useMenu";
+  import { ref, reactive } from "vue";
+  import { useMenu } from "@/untils/useMenu";
 
-const { menuItems, activePath } = useMenu();
-const drawer = ref(false);
-const drawerTitleTime = ref("");
+  const { menuItems, activePath } = useMenu();
+  const drawer = ref(false);
+  const drawerTitleTime = ref("");
 
-const gameLIst = reactive([{ id: 0, name: "体育" },{ id: 1, name: "娱乐场" },{ id: 2, name: "真人荷官" },{ id: 3, name: "虚拟体育" },{ id: 4, name: "彩票" }]);
+  const gameLIst = reactive([{ id: 0, name: "体育" },{ id: 1, name: "娱乐场" },{ id: 2, name: "真人荷官" },{ id: 3, name: "虚拟体育" },{ id: 4, name: "彩票" }]);
 
-const list = reactive([
-  { id: 0, name: "我的帳戶" },
-  { id: 1, name: "支付" },
-  { id: 2, name: "通知" },
-  { id: 3, name: "信息" },
-  { id: 4, name: "優惠" },
-  { id: 5, name: "應用程序" },
-  { id: 6, name: "幫助" },
-  { id: 7, name: "在線客服" },
-  { id: 8, name: "關於我們" },
-  { id: 9, name: "網站導覽" },
-  { id: 99, name: "退出" }
-]);
+  const list = reactive([
+    { id: 0, name: "我的帳戶" },
+    { id: 1, name: "支付" },
+    { id: 2, name: "通知" },
+    { id: 3, name: "信息" },
+    { id: 4, name: "優惠" },
+    { id: 5, name: "應用程序" },
+    { id: 6, name: "幫助" },
+    { id: 7, name: "在線客服" },
+    { id: 8, name: "關於我們" },
+    { id: 9, name: "網站導覽" },
+    { id: 99, name: "退出" }
+  ]);
 
-setInterval(() => {
-  const currentDateTime = new Date();
-  const hours = currentDateTime.getHours().toString().padStart(2, "0");
-  const minutes = currentDateTime.getMinutes().toString().padStart(2, "0");
-  const seconds = currentDateTime.getSeconds().toString().padStart(2, "0");
-  const timeZone = "(GMT+8:00)";
+  setInterval(() => {
+    const currentDateTime = new Date();
+    const hours = currentDateTime.getHours().toString().padStart(2, "0");
+    const minutes = currentDateTime.getMinutes().toString().padStart(2, "0");
+    const seconds = currentDateTime.getSeconds().toString().padStart(2, "0");
+    const timeZone = "(GMT+8:00)";
 
-  const formattedTime = `${hours}:${minutes}:${seconds} ${timeZone}`;
-  drawerTitleTime.value = formattedTime;
-}, 1000);
+    const formattedTime = `${hours}:${minutes}:${seconds} ${timeZone}`;
+    drawerTitleTime.value = formattedTime;
+  }, 1000);
 </script>
 <style scoped>
 .bg-secondary--darken-5 {
