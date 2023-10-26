@@ -2,13 +2,21 @@
     <div class="demo">
         <el-row :gutter="12">
             <el-col :span="8">
+                <router-link :to="{ path: 'BettingDetail', query: { type: 'live' }}">
             <el-card shadow="hover">
-                <el-icon></el-icon>
-                 真人荷官
+               
+                     真人荷官
+               
+               
              </el-card>
+            </router-link>
             </el-col>
             <el-col :span="8">
-            <el-card shadow="hover"> <el-icon></el-icon> 彩票 </el-card>
+                <router-link :to="{ path: 'BettingDetail'}">
+            <el-card shadow="hover"> 
+                彩票
+                 </el-card>
+                </router-link>
             </el-col>
         </el-row>
     </div>

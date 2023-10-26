@@ -11,7 +11,7 @@
                 <el-tab-pane label="投注紀錄" name="betting">
                     <betting></betting>
                 </el-tab-pane>
-
+                    
             </el-tabs>
         </el-container>
     </el-container>

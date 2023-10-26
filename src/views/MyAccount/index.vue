@@ -36,6 +36,7 @@ router.beforeEach((to, from, next) => {
   activePath.value = to.path;
   next(); // 必须调用 next()，以继续路由导航
 });
+
 const defaultActive=computed(()=>{
     activePath.value= activePath.value.split('/').reverse()[0];
   });
