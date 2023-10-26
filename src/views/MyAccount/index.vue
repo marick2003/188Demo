@@ -10,7 +10,7 @@
         active-text-color="#FF9200"
         class="el-menu-vertical-demo">
           <div class="title  text-xl font-bold">我的账户</div>
-          <el-menu-item v-for="(item, index) in childrenMenu" :index="item.path"  :route="item.path === 'Statement' ? { path: item.path, query: { tab: 'summarys' } } : { path: item.path }">
+          <el-menu-item v-for="item in childrenMenu" :index="item.path"  :route="item.path === 'Statement' ? { path: item.path, query: { tab: 'summarys' } } : { path: item.path }">
             <!-- {{ $t(item.name) ? $t(item.name) : item.name}} -->
             {{ item.name }}
           </el-menu-item>
@@ -24,20 +24,19 @@
   </div>
 </template>
 <script setup>
-import { ref,computed  } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
-const router = useRouter();
-const menuItems = ref(router.options.routes.filter(item => item.name === 'MyAccount'));
-console.log(menuItems, 'menuItems');
-const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
-let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
-const activePath=  ref('/')
-router.beforeEach((to, from, next) => {
-  activePath.value = to.path;
-  next(); // 必须调用 next()，以继续路由导航
-});
+  import { ref,computed  } from 'vue';
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
+  const menuItems = ref(router.options.routes.filter(item => item.name === 'MyAccount'));
+  const filteredItem = menuItems.value.find(item => item.name === 'MyAccount');
+  let childrenMenu = ref(filteredItem ? filteredItem.children.filter(e => e.type === "page") : []);
+  const activePath=  ref('/')
+  router.beforeEach((to, from, next) => {
+    activePath.value = to.path;
+    next(); // 必须调用 next()，以继续路由导航
+  });
 
-const defaultActive=computed(()=>{
+  const defaultActive=computed(()=>{
     activePath.value= activePath.value.split('/').reverse()[0];
   });
 </script>
