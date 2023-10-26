@@ -5,7 +5,7 @@
                 {{ item.name }}
             </li>
         </ul>
-        <el-input v-model="input2" class="m-2 search-input" placeholder="搜尋" :suffix-icon="Search"/>
+        <el-input v-model="input2" class="m-2 custom-input" placeholder="搜尋" :suffix-icon="Search"/>
     </header>
     <CarouselBanner class="mt-5" :carouselMenu="carouselMenu" :page="'games/lottery'"></CarouselBanner>
     <h1 class="text-white mt-4 text-2xl">继续游戏</h1>
@@ -61,16 +61,19 @@ const carouselMenu = reactive([
 const groupList = reactive([{ id: 0, name: '至尊廳' }, { id: 1, name: '歐洲廳' }, { id: 2, name: '西方廳' }, { id: 3, name: '御龍廳' }, { id: 4, name: '富麗廳' }]);
 const gameLIst = reactive([{ id: 0, name: '視頻撲克' }, { id: 1, name: '金庫輪盤' }, { id: 2, name: '百家樂' }, { id: 3, name: '終極輪盤' }, { id: 0, name: '牛牛' }, { id: 1, name: '龍虎' }, { id: 2, name: '骰寶' }, { id: 3, name: '二十一點' }, { id: 0, name: '輪盤' }]);
 </script>
+
 <style scoped lang="scss">
-.search-input {
+.custom-input {
     width: 15%;
-    :deep(.inner-element) {
-        font-size: 20px;
-        background: none;
-        border-bottom: 1px solid #aaa;
-        box-shadow: none;
-        border-radius: 0;
-    }
+}
+
+.custom-input :deep(.el-input__wrapper) {
+    font-size: 14px;
+    background: transparent;
+    border-bottom: 1px solid #aaa;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
 }
 </style>
   

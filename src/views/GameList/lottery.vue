@@ -62,14 +62,16 @@ const groupList = reactive([{ id: 0, name: '东南亚彩' }, { id: 1, name: '时
 const gameLIst = reactive([{ id: 0, name: '視頻撲克' }, { id: 1, name: '金庫輪盤' }, { id: 2, name: '百家樂' }, { id: 3, name: '終極輪盤' }, { id: 0, name: '牛牛' }, { id: 1, name: '龍虎' }, { id: 2, name: '骰寶' }, { id: 3, name: '二十一點' }, { id: 0, name: '輪盤' }]);
 </script>
 <style scoped lang="scss">
-.search-input {
-  width: 15%;
-    :deep(.inner-element) {
-        font-size: 20px;
-        background: none;
-        border-bottom: 1px solid #aaa;
-        box-shadow: none;
-        border-radius: 0;
-    }
+.custom-input {
+    width: 15%;
+}
+
+.custom-input :deep(.el-input__wrapper) {
+    font-size: 14px;
+    background: transparent;
+    border-bottom: 1px solid #aaa;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
 }
 </style>
