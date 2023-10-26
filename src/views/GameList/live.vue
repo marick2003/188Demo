@@ -64,13 +64,12 @@ const gameLIst = reactive([{ id: 0, name: '視頻撲克' }, { id: 1, name: '金�
 <style scoped lang="scss">
 .search-input {
     width: 15%;
-    ::v-deep .el-input__wrapper {
+    :deep(.inner-element) {
         font-size: 20px;
         background: none;
         border-bottom: 1px solid #aaa;
         box-shadow: none;
         border-radius: 0;
-        
     }
 }
 </style>

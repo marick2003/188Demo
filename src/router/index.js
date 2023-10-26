@@ -10,17 +10,16 @@ import Live from '@/views/GameList/live.vue'
 import Lottery from '@/views/GameList/lottery.vue'
 import StatementSummary from '@/views/MyAccount/history/summary.vue'
 import StatementBetting from '@/views/MyAccount/history/betting.vue'
-let routes_pc=[
+let routes_pc = [
     {
       path: '/',
-      name: 'HomePage',
+      name: '首頁',
       type:'page',
       component: HomePage,
     },
     {
       path: '/myaccount',
       name: 'MyAccount',
-      type:'page',
       redirect:'/myaccount/dashboard',
       component: MyAccount,
       children:[

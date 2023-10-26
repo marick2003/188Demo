@@ -21,8 +21,12 @@
           <slot name="selectLocal"></slot>
         </div>
       </el-menu>
-      <el-button class="absolute top-4 right-4" type="primary" @click="drawer = true">
-        <el-icon class="text-white"><Menu /></el-icon>
+      <!-- <span class="ml-3 basis-1/2">
+        <div class="text-xs opacity-70">member99</div>
+        <div class="text-sm font-black">RMB 0.00</div>
+      </span> -->
+      <el-button class="absolute top-4 right-4 bg-transparent" type="primary" @click="drawer = true">
+        <el-icon class="text-white border-2 border-solid border-white rounded-full" :size="20" color="white"><User /></el-icon>
       </el-button>
       <el-drawer v-model="drawer" :title="drawerTitleTime" class="bg-black text-white" :size="330">
         <div class="user-info s-member-balance bg-black p-4">
@@ -56,7 +60,7 @@
           </ul>
         </section>
         <ul class="s-list light text-light--high">
-          <li v-for="item in list" :key="item.id" :class="{ 'logout': item.id === 99 }" class="s-list-item flex items-center flex-[1_1_100%] tracking-normal min-h-[3rem] relative bg-secondary--darken-5 text-light--high dark px-[1.5rem] md:hover:text-primary capitalize cursor-pointer hover:bg-inherit">
+          <li v-for="item in list" :key="item.id" :class="{ 'logout': item.id === 99 }" @click="handleClick(item)" class="s-list-item flex items-center flex-[1_1_100%] tracking-normal min-h-[3rem] relative bg-secondary--darken-5 text-light--high dark px-[1.5rem] md:hover:text-primary capitalize cursor-pointer hover:bg-inherit">
             {{ item.name }}
           </li>
         </ul>
@@ -69,6 +73,7 @@
 <script setup>
   import { ref, reactive } from "vue";
   import { useMenu } from "@/untils/useMenu";
+  import router from "../router";
 
   const { menuItems, activePath } = useMenu();
   const drawer = ref(false);
@@ -77,7 +82,7 @@
   const gameLIst = reactive([{ id: 0, name: "体育" },{ id: 1, name: "娱乐场" },{ id: 2, name: "真人荷官" },{ id: 3, name: "虚拟体育" },{ id: 4, name: "彩票" }]);
 
   const list = reactive([
-    { id: 0, name: "我的帳戶" },
+    { id: 0, name: "我的帳戶", path: '/myaccount' },
     { id: 1, name: "支付" },
     { id: 2, name: "通知" },
     { id: 3, name: "信息" },
@@ -89,6 +94,14 @@
     { id: 9, name: "網站導覽" },
     { id: 99, name: "退出" }
   ]);
+
+  const handleClick = (item) => {
+    if(!item.path) return;
+    drawer.value = false
+    router.push({
+      path: item.path
+    })
+  }
 
   setInterval(() => {
     const currentDateTime = new Date();

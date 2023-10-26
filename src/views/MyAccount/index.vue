@@ -25,11 +25,17 @@
 </template>
 <script setup>
 import { ref,computed  } from 'vue';
-import { useMenu } from '@/untils/useMenu';
 import { useRouter, useRoute } from 'vue-router';
-const { menuItems, activePath } = useMenu();
+const router = useRouter();
+const menuItems = ref(router.options.routes.filter(item => item.name === 'MyAccount'));
+console.log(menuItems, 'menuItems');
 const filteredItem = menuItems.value.find(item => item.name === "MyAccount");
 let  childrenMenu = ref(filteredItem ? filteredItem.children : []);
+const activePath=  ref('/')
+router.beforeEach((to, from, next) => {
+  activePath.value = to.path;
+  next(); // 必须调用 next()，以继续路由导航
+});
 const defaultActive=computed(()=>{
     activePath.value= activePath.value.split('/').reverse()[0];
   });
